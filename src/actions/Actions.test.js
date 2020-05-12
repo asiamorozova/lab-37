@@ -12,4 +12,16 @@ describe ('emoji response', () => {
       }
     });
   });
+
+
+  it('eats snack', ()=> {
+    const action = eatSnack(2);
+  
+    expect(action).toEqual({
+      type: EAT_SNACK,
+      payload: {
+        snack: 2
+      }
+    });
+  });
 });
