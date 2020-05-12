@@ -36,5 +36,15 @@ describe ('emoji response', () => {
     });
   });
 
+  it('studies', ()=> {
+    const action = study(4);
+  
+    expect(action).toEqual({
+      type: STUDY,
+      payload: {
+        study: 4
+      }
+    });
+  });
 
 });
