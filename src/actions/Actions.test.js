@@ -24,4 +24,17 @@ describe ('emoji response', () => {
       }
     });
   });
+
+  it('naps', ()=> {
+    const action = takeNap(3);
+  
+    expect(action).toEqual({
+      type: TAKE_NAP,
+      payload: {
+        nap: 3
+      }
+    });
+  });
+
+
 });
