@@ -2,41 +2,69 @@
 //Remove the state declaration in the container
 //extract code from Moods.js into the appropriate files => actions, selectors & reducers 
 
-import React, { Component } from 'react';
-import Controls from '../components/controls/Controls';
-import Face from '../components/face/Face';
+import React from 'react';
+//import Controls from '../components/controls/Controls';
+//import Face from '../components/face/Face';
 import { useSelector, useDispatch } from 'react-redux';
 import { drinkCoffee, eatSnack, takeNap, study } from '../actions/Actions';
+import { totalNaps, totalCoffee, totalStudies, totalSnacks, getFace } from '../Selectors/isSelector';
+
+
 
  
 //const setState - useDispatch and state -useSelector 
-export const getFace = state => {
-  if(isTired(state) && isHungry(state)) return '🤬';
-  if(isHyper(state) && isHungry(state)) return '🤮';
-  if(isTired(state)) return '😴';
-  if(isHyper(state)) return '🙀';
-  if(isEducated(state)) return '🤯';
-  if(isHungry(state)) return '😡';
-  
-  return '😀';
-};
+
 
 
 const Moods = () => {
   const dispatch = useDispatch();
-  const coffee = useSelector;
+  const naps = useSelector(totalNaps);
+  const coffees = useSelector(totalCoffee);
+  const studies = useSelector(totalStudies);
+  const snacks = useSelector(totalSnacks);
+
+  const face = useSelector(getFace);
+
+
+
+  switch(action.type) {
+    case 'DRINK_COFFEE': 
+      dispatch(drinkCoffee());
+      break; 
+
+    case 'EAT_SNACK':
+      dispatch(eatSnack());
+      break;
+
+    case 'TAKE_NAP': 
+      dispatch(takeNap());
+      break;
+
+    case 'STUDY':
+      dispatch(study());
+      break;
+
+    default: 
+      console.log(`unhandled type: ${action.type}`);   
+  }
+
+
+
+  return (
+    <>
+      <Controls>
+        <button onClick={() => this.handleSelection({ type: 'DRINK_COFFEE' })}>coffee - {coffees}</button>
+        <button onClick={() => this.handleSelection({ type: 'EAT_SNACK' })}>snacks - {snacks}</button>
+        <button onClick={() => this.handleSelection({ type: 'TAKE_NAP' })}>naps - {naps}</button>
+        <button onClick={() => this.handleSelection({ type: 'STUDY' })}>studies - {studies}</button>
+      </Controls>
+      <Face emoji={face} />
+    </>
+  );
 };
-return (
-  <>
-    <Controls>
-      <button onClick={() => this.handleSelection({ type: 'DRINK_COFFEE' })}>coffee - {coffees}</button>
-      <button onClick={() => this.handleSelection({ type: 'EAT_SNACK' })}>snacks - {snacks}</button>
-      <button onClick={() => this.handleSelection({ type: 'TAKE_NAP' })}>naps - {naps}</button>
-      <button onClick={() => this.handleSelection({ type: 'STUDY' })}>studies - {studies}</button>
-    </Controls>
-    <Face emoji={face} />
-  </>
-);
+
+
+export default Moods;
 
 
 
