@@ -3,7 +3,7 @@
 //extract code from Moods.js into the appropriate files => actions, selectors & reducers 
 
 import React from 'react';
-import Controls from '../components/controls/Controls';
+import Controls from '../components/Controls/Controls';
 //import Face from '../components/face/Face';
 import { useSelector, useDispatch } from 'react-redux';
 import { drinkCoffee, eatSnack, takeNap, study } from '../actions/Actions';
