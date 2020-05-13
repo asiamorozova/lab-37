@@ -12,6 +12,38 @@ describe('selector test', () => {
     const tired = isTired(state);
     expect(tired).toEqual(true);
   });
+  it('is not tired if coffee and naps are greater then 1', () => {
+    const state = {
+      coffees:2, 
+      snacks: 0,
+      naps: 2,
+      studies:0,
+    };
+    const tired = isTired(state);
+    expect(tired).toEqual(false);
+  });
+  it('isHyper if coffee > 3', () => {
+    const state = {
+      coffees: 4,
+      snacks: 0,
+      naps: 0,
+      studies: 0
+    };
+    const hyper = isHyper(state);
+    expect(hyper).toEqual(true);
+
+  });
+  it('not hyper if coffee less then 3', () => {
+    const state = {
+      coffees: 1,
+      snacks: 0,
+      naps: 0,
+      studies: 1
+    };
+    const hyper = isHyper(state);
+    expect(hyper).toEqual(false);
+  });
 
   
+
 });
