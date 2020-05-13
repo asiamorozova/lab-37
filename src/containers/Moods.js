@@ -6,8 +6,26 @@ import React, { Component } from 'react';
 import Controls from '../components/controls/Controls';
 import Face from '../components/face/Face';
 import { useSelector, useDispatch } from 'react-redux';
+import { drinkCoffee, eatSnack, takeNap, study } from '../actions/Actions';
+
+ 
+//const setState - useDispatch and state -useSelector 
+export const getFace = state => {
+  if(isTired(state) && isHungry(state)) return '🤬';
+  if(isHyper(state) && isHungry(state)) return '🤮';
+  if(isTired(state)) return '😴';
+  if(isHyper(state)) return '🙀';
+  if(isEducated(state)) return '🤯';
+  if(isHungry(state)) return '😡';
+  
+  return '😀';
+};
 
 
+const Moods = () => {
+  const dispatch = useDispatch();
+  const coffee = useSelector;
+};
 return (
   <>
     <Controls>
