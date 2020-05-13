@@ -26,7 +26,7 @@ const Moods  = () => {
   const face = useSelector(getFace);
 
 
-  handleSelection = action => { 
+  const handleSelection = action => { 
     switch(action.type) {
       case 'DRINK_COFFEE': 
         dispatch(drinkCoffee());
