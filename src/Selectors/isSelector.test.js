@@ -64,6 +64,15 @@ describe('selector test', () => {
     const educated = isEducated(state);
     expect(educated).toEqual(false);
   });
-
+  it('isHungry is true if <1', () => {
+    const state = {
+      coffees: 0,
+      snacks: 0,
+      naps: 0,
+      studies: 0
+    };
+    const hungry = isHungry(state);
+    expect(hungry).toEqual(true);
+  });
 
 });
