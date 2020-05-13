@@ -74,5 +74,14 @@ describe('selector test', () => {
     const hungry = isHungry(state);
     expect(hungry).toEqual(true);
   });
-
+  it('isHungry is false if snacks greater then 1', () => {
+    const state = {
+      coffees: 0,
+      snacks: 3,
+      naps: 0,
+      studies: 0
+    };
+    const hungry = isHungry(state);
+    expect(hungry).toEqual(false);
+  });
 });
