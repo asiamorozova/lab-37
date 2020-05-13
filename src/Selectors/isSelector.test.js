@@ -44,6 +44,26 @@ describe('selector test', () => {
     expect(hyper).toEqual(false);
   });
 
-  
+  it('head explodes if educated is > 2', () => {
+    const state = {
+      coffees: 0,
+      snacks: 0,
+      naps: 0,
+      studies: 3
+    };
+    const educated = isEducated(state);
+    expect(educated).toEqual(true);
+  });
+  it('head is fine if studying is < 2', () => {
+    const state = {
+      coffees: 0,
+      snacks: 0,
+      naps: 0,
+      studies: 1
+    };
+    const educated = isEducated(state);
+    expect(educated).toEqual(false);
+  });
+
 
 });
