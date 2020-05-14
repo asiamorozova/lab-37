@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import reducer from '../components/reducers/BaseReducer';
+import reducer from '../reducers/actionReducer';
 
 
 

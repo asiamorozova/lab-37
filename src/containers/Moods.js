@@ -4,7 +4,7 @@
 
 import React from 'react';
 import Controls from '../components/Controls/Controls';
-//import Face from '../components/face/Face';
+import Face from '../components/face/Face';
 import { useSelector, useDispatch } from 'react-redux';
 import { drinkCoffee, eatSnack, takeNap, study } from '../actions/Actions';
 import { totalNaps, totalCoffee, totalStudies, totalSnacks, getFace } from '../Selectors/isSelector';
@@ -26,28 +26,27 @@ const Moods  = () => {
   const face = useSelector(getFace);
 
 
-  const handleSelection = action => { 
-    switch(action.type) {
-      case 'DRINK_COFFEE': 
-        dispatch(drinkCoffee());
-        break; 
+  switch(action.type) {
+    case 'DRINK_COFFEE': 
+      dispatch(drinkCoffee());
+      break; 
 
-      case 'EAT_SNACK':
-        dispatch(eatSnack());
-        break;
+    case 'EAT_SNACK':
+      dispatch(eatSnack());
+      break;
 
-      case 'TAKE_NAP': 
-        dispatch(takeNap());
-        break;
+    case 'TAKE_NAP': 
+      dispatch(takeNap());
+      break;
 
-      case 'STUDY':
-        dispatch(study());
-        break;
+    case 'STUDY':
+      dispatch(study());
+      break;
 
-      default: 
-        console.log(`unhandled type: ${action.type}`);   
-    }
-  };
+    default: 
+      console.log(`unhandled type: ${action.type}`);   
+  }
+
 
 
 
@@ -62,8 +61,8 @@ const Moods  = () => {
       <Face emoji={face} />
     </>
   );
-};
 
+};
 
 export default Moods;
 
