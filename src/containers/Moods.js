@@ -23,7 +23,7 @@ const Moods  = () => {
   const studies = useSelector(totalStudies);
   const snacks = useSelector(totalSnacks);
 
-  const face = useSelector(getFace);
+  const Face = useSelector(getFace);
 
 
   switch(action.type) {
@@ -53,16 +53,17 @@ const Moods  = () => {
   return (
     <>
       <Controls>
-        <button onClick={() => this.handleSelection({ type: 'DRINK_COFFEE' })}>coffee - {coffees}</button>
-        <button onClick={() => this.handleSelection({ type: 'EAT_SNACK' })}>snacks - {snacks}</button>
-        <button onClick={() => this.handleSelection({ type: 'TAKE_NAP' })}>naps - {naps}</button>
-        <button onClick={() => this.handleSelection({ type: 'STUDY' })}>studies - {studies}</button>
+        <button onClick={() => handleSelection(drinkCoffee())}>coffee - {coffees}</button>
+        <button onClick={() => handleSelection(eatSnack())}>snacks - {snacks}</button>
+        <button onClick={() => handleSelection(takeNap())}>naps - {naps}</button>
+        <button onClick={() => handleSelection(study())}>studies - {studies}</button>
       </Controls>
-      <Face emoji={face} />
+      <Face />
     </>
   );
-
 };
+
+
 
 export default Moods;
 
